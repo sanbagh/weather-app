@@ -4,6 +4,7 @@ const forecast = require('./utlis/forecast');
 const express = require('express');
 const hbs = require('hbs');
 const app = express();
+const port  = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('views', path.join(__dirname, '../templates/views'));
@@ -70,6 +71,6 @@ app.get('*', (req, res) => {
     errorMessage: 'Page not found'
   });
 });
-app.listen('3000', () => {
+app.listen(port, () => {
   console.log('server started');
 });
